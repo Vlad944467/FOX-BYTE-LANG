@@ -1,37 +1,11 @@
+#include "gvar.h"
+#include "opcodes.h"
 #include <string.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
 #include <sys/ioctl.h>
 #include <linux/kd.h>
-char s[90];
-int values[26];
-char arg1[100], arg2[100], arg3[100], arg4[100];
-char arg5[100];
-char strings[26][100];
-char cval[26];
-float fval[26];
-
-int code[30000] = {0};
-int cs = 0;
-int pc = 0;
-int flag = 0;
-char sa[10000][100],sb[10000][100];int arg_i=0;
-enum {
-    OP_MOV, OP_ADD, OP_SUB,
-    OP_INT_PRINT, OP_PRINT_C,
-    OP_ADD_NUM, OP_SUBT_NUM,
-    OP_CLEAR, OP_MUL_NUM,
-    OP_DIV_NUM, OP_STR,
-    OP_PRINT_STR, OP_FMOV,
-    OP_PRINTFL, OP_MOVC,
-    OP_PRINTC, OP_STRLEN,
-    OP_FADD, OP_INPUT_INT,
-    OP_INPUT_STR, OP_DEC,
-    OP_INC, OP_COPY, OP_SAVEV,
-    OP_LOADV, OP_INPUTF, OP_INPUTC,
-    OP_IF, OP_CM
-};
 int mov(){
     int idx = arg2[0] - 'a';
     values[idx] = atoi(arg3);
