@@ -46,7 +46,7 @@ void raz() {
     arg2[0] = 0; arg3[0] = 0; arg4[0] = 0; arg5[0] = 0;
     if (sscanf(s, "%89s %89s %89s %89s %89s", arg1,arg2,arg3,arg4,arg5) < 1) return;
     int num = -1;
-    if (strcmp(arg1,"mov")==0) { num = OP_MOV;
+    if (strcmp(arg1,"set")==0) { num = OP_MOV;
     }else if(strcmp(arg1,"add")==0){ num = OP_ADD;
     }else if(strcmp(arg1,"sub")==0){ num = OP_SUB;
     }else if(strcmp(arg1,"int_print")==0){ num = OP_INT_PRINT;
