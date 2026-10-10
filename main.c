@@ -282,10 +282,10 @@ void main() {
                     raz();
                 }
                 fclose(f4);
-                save_sbc("programm.f");
+                save_sbc("programm.fx");
                 break;
             case 5:
-                load_sbc("programm.f");
+                load_sbc("programm.fx");
                 run();
                 break;
             default:puts("Неизвестная команда");   
